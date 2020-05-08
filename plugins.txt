@@ -5,3 +5,4 @@ azure-credentials:4.0.2
 azure-keyvault:2.0
 azure-vm-agents:1.4.1
 configuration-as-code:1.39
+script-security:1.70
