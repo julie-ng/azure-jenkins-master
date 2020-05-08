@@ -3,4 +3,3 @@
 
 *.local.yml
 local/*
-secrets/*
