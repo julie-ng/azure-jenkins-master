@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  jenkins:
+    build: .
+    ports:
+      - '8080:8080'
+    environment:
+      - JENKINS_URL=http://localhost:8080
+      - JENKINS_HOME=/var/jenkins_home
+
+      # Set this env var to use secure defaults
+      - CASC_JENKINS_CONFIG=/var/jenkins_configs/
+    volumes:
+      - jenkins_home:/var/jenkins_home
+
+      # mount additional config for local testing
+      # individual files to not overwrite base config
+      - ./local/location.local.yml:/var/jenkins_configs/location.yml
+      - ./local/set-master-account.local.yml:/var/jenkins_configs/set-master-account.yml
+volumes:
+  jenkins_home: {}

@@ -1,0 +1,6 @@
+.DS_Store
+*.log
+
+*.local.yml
+local/*
+secrets/*
