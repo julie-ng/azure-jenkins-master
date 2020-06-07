@@ -3,8 +3,8 @@ ARG JENKINS_VERSION=lts
 FROM jenkins/jenkins:${JENKINS_VERSION}
 LABEL maintainer="Julie Ng <me@julie.io>"
 
+ARG AZ_CLI_VERSION=2.7.0
 ARG DEBIAN_FRONTEND=noninteractive
-ARG AZ_CLI_VERSION=2.5.1
 
 USER root
 
