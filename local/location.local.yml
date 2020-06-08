@@ -1,0 +1,4 @@
+unclassified:
+  location:
+    adminAddress: admin@localhost
+    url: http://localhost:8080/

@@ -1,0 +1,11 @@
+# For local testing
+# https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/demos/embedded-userdatabase
+
+jenkins:
+  authorizationStrategy: loggedInUsersCanDoAnything
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+					password: "badidea"

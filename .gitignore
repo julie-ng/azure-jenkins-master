@@ -3,3 +3,5 @@
 
 *.local.yml
 local/*
+!local/location.local.yml
+!local/*.example.yml

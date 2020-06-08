@@ -14,7 +14,7 @@ services:
       - jenkins_home:/var/jenkins_home
 
       # mount additional config for local testing
-      # individual files to not overwrite base config
+      # using individual files to not overwrite base config
       - ./local/location.local.yml:/var/jenkins_configs/location.yml
       - ./local/aad-security-realm.local.yml:/var/jenkins_configs/aad-security-realm.yml
       - ./local/authorization-strategy.local.yml:/var/jenkins_configs/authorization-strategy.yml
