@@ -56,7 +56,6 @@ In Azure AD, find "API permissions" for your app registration and set the follow
 
 | API Permission | Type | Description |
 |:--|:--|:--|
-| Directory.ReadAll | Delegated | Read directory data |
 | Directory.ReadAll | Application | Read directory data |
 | User.Read | Delegated | Sign in and read user profile |
 
@@ -64,7 +63,6 @@ In Azure AD, find "API permissions" for your app registration and set the follow
 
 | API Permission | Type | Description |
 |:--|:--|:--|
-| Directory.ReadAll | Delegated | Read directory data |
 | Directory.ReadAll | Application | Read directory data |
 | User.read | Delegated | Sign in and read user profile |
 
