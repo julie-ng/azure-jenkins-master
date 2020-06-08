@@ -8,4 +8,4 @@ jenkins:
       allowsSignup: false
       users:
         - id: "admin"
-					password: "badidea"
+          password: "badidea"
