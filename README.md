@@ -34,6 +34,7 @@ These plugins are preloaded for improved workflow.
 | [Job DSL](https://plugins.jenkins.io/job-dsl) | Seeds jobs, incl. with [JCasC](https://github.com/jenkinsci/job-dsl-plugin/wiki/JCasC) | 1.77 |
 | [Timestamper](https://plugins.jenkins.io/timestamper) | Adds timestamps in console output | 1.11.3 |
 | [Blue Ocean](https://plugins.jenkins.io/blueocean) |  Adds redesigned Jenkins experience | 1.23.2 |
+| [Role-based Authorization Strategy](https://plugins.jenkins.io/role-strategy/) | Add role-based mechanism for Authorization | 3.0 |
 
 ### Azure Integration
 

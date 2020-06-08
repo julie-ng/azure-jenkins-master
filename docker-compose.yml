@@ -16,6 +16,7 @@ services:
       # mount additional config for local testing
       # individual files to not overwrite base config
       - ./local/location.local.yml:/var/jenkins_configs/location.yml
-      - ./local/set-master-account.local.yml:/var/jenkins_configs/set-master-account.yml
+      - ./local/aad-security-realm.local.yml:/var/jenkins_configs/aad-security-realm.yml
+      - ./local/authorization-strategy.local.yml:/var/jenkins_configs/authorization-strategy.yml
 volumes:
   jenkins_home: {}

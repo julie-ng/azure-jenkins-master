@@ -8,3 +8,4 @@ workflow-aggregator:2.6
 job-dsl:1.77
 timestamper:1.11.3
 github-branch-source:2.8.0
+role-strategy:3.0
