@@ -77,6 +77,9 @@ This image uses the [Configuration as Code Plugin](https://plugins.jenkins.io/co
 
 Individual configuration files for this image are found in the [`config/`](./config/) folder.
 
+For more properties and examples see
+[https://github.com/jenkinsci/configuration-as-code-plugin](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/demos/jenkins/jenkins.yaml)
+
 #### Exporting Config
 
 - [JSasC Docs: Exporting configurations](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/configExport.md) --> open http://localhost:8080/configuration-as-code/
