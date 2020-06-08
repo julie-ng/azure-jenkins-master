@@ -2,7 +2,7 @@
 
 The `lts` tag automatically follows the upstream Jenkins `lts` tag, installing the latest Azure CLI tool.
 
-## Releases
+## Jenkins and Azure CLI Releases
 
 | Date Published | Tag | Jenkins Version | Azure CLI Version |
 |:--|:--|:--|:--|
@@ -20,48 +20,50 @@ This image extends the Jenkins Long Term Support (LTS) image, instead of default
 
 ```bash
 docker pull jenkins/jenkins:lts
-docker build .
 ```
 
-## Configuration as Code
+## Pre-installed Plugins
 
-This image uses the [Configuration as Code Plugin](https://plugins.jenkins.io/configuration-as-code/). This originally started as an independent project but has been proposed to be integrated as standard into Jenkins and the [was accepted](https://github.com/jenkinsci/jep/tree/master/jep/201) in 2017. This image uses CasC.
+### Jenkins Functionality
 
-Documentation is generally found _not_ on the official Jenkins website, but in their official [jenkinsci](ttps://github.com/jenkinsci/) Github organization. For reference:
+These plugins are preloaded for improved workflow.
 
-- [AAD Integration](https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/demos/active-directory)
+| Plugin | Description | Version |
+|:--|:--|:--|
+| [Pipeline](https://plugins.jenkins.io/workflow-aggregator) | Adds pipeline functionality incl. multibranch and stages, declarative pipeline synxtax, etc. | 2.6 |
+| [Job DSL](https://plugins.jenkins.io/job-dsl) | Seeds jobs, incl. with [JCasC](https://github.com/jenkinsci/job-dsl-plugin/wiki/JCasC) | 1.77 |
+| [Timestamper](https://plugins.jenkins.io/timestamper) | Adds timestamps in console output | 1.11.3 |
+| [Blue Ocean](https://plugins.jenkins.io/blueocean) |  Adds redesigned Jenkins experience | 1.23.2 |
+
+### Azure Integration
+
+These plugins are preloaded for integration with Azure.
+
+| Plugin | Description | Version |
+|:--|:--|:--|
+| [Azure AD](https://plugins.jenkins.io/azure-ad) | Azure AD integration for authenication and authorization | 1.2.0 |
+| [Azure Credentials Plugin](https://plugins.jenkins.io/azure-credentials/) | Jenkins plugin to manage Azure credentials | 4.0.2 |
+| [Azure Key Vault](https://plugins.jenkins.io/azure-keyvault/) | Fetch secrets from Azure Keyvault for use in pipelines | 2.0 |
+| [Azure VM Agents](https://plugins.jenkins.io/azure-vm-agents/) | Spin up Jenkins agents using Azure Virtual Machines | 1.5.0 |
+
+
+## Jenkins Configuration as Code (JCasC)
+
+This image uses the [Configuration as Code Plugin](https://plugins.jenkins.io/configuration-as-code/). This originally started as an independent project and now [standard Jenkins](https://github.com/jenkinsci/jep/tree/master/jep/201). Documentation is generally found _not_ on the official Jenkins website, but in their official [jenkinsci](ttps://github.com/jenkinsci/) Github organization. For reference:
+
+- ~~[Active Directory](https://github.com/jenkinsci/configuration-as-code-plugin/tree/master/demos/active-directory)~~
 - [Matrix Authorization](https://github.com/jenkinsci/matrix-auth-plugin/blob/master/src/test/resources/org/jenkinsci/plugins/matrixauth/integrations/casc/configuration-as-code.yml)
 
-Individual config for this image are found in the [`config/`](./config/) folder.
+Individual configuration files for this image are found in the [`config/`](./config/) folder.
 
-## Azure AD Integration
+#### Exporting Config
 
-- [Jekins Plugin: Azure AD](https://plugins.jenkins.io/azure-ad/) (maintined by the Azure DevOps team and [source is on GitHub](https://github.com/jenkinsci/azure-ad-plugin))
-
-### Security
-
-- [Jenkins Handbook: Managing Security](https://www.jenkins.io/doc/book/managing/security/)
-- [Jenkins wiki: Standard Security Setup](https://wiki.jenkins.io/display/JENKINS/Standard+Security+Setup)
-- [Jenkins wiki: Matrix-based security](https://wiki.jenkins.io/display/JENKINS/Matrix-based+security)
-- [Jenkins Handbook: In-process Script Approval](https://www.jenkins.io/doc/book/managing/script-approval/)  
-  Requires groovy script entering entiring script (or method signature) into configuration
-- [Cloudbees Blog: Securing Jenkins with Role-based Access Control and Azure Active Directory](https://www.previous.cloudbees.com/blog/securing-jenkins-role-based-access-control-and-azure-active-directory)
+- [JSasC Docs: Exporting configurations](https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/features/configExport.md) --> open http://localhost:8080/configuration-as-code/
 
 
-## Plugins
+## Development
 
-We also preloaded our Jenkins with some plugins for our toolchain and an improved workflow:
-
-- [NodeJS Plugin](https://plugins.jenkins.io/nodejs)
-- [Pipeline 2.5](https://plugins.jenkins.io/workflow-aggregator) for latest syntax including declarative pipelines
-- [Pipeline Utility Steps](https://plugins.jenkins.io/pipeline-utility-steps) for zipping files
-- [Pipeline: Build Step](https://plugins.jenkins.io/pipeline-build-step) for triggering other jobs
-- [Job DSL](https://plugins.jenkins.io/job-dsl) for programmatically adding jobs
-- [Timestamper](https://plugins.jenkins.io/timestamper) for timestamps in console output
-- [Blue Ocean](https://plugins.jenkins.io/blueocean) for a redesigned Jenkins experience
-- [Artifactory](https://plugins.jenkins.io/artifactory) for managing our build artifacts
-
-## Test Locally
+### Test Locally
 
 You can test this image locally using
 
@@ -74,7 +76,7 @@ Then you can login to [http://localhost:8080](http://localhost:8080/) using
 - username: `admin`
 - password: `badidea`
 
-## Export Plugin Versions
+### Export Plugin Versions
 
 To get a list of latest versions via the REST API, we need the credentials. Instead of referencing that directly in the command, we'll export the host instead. Replace `<USERNAME>` and `<PASSWORD>` with your credentials. This will export *all* installed plugins including dependencies.
 
@@ -91,3 +93,16 @@ curl -sSL "http://$JENKINS_HOST/pluginManager/api/xml?depth=1&xpath=/*/*/shortNa
 ## Note
 
 This is an a docker image for a Jenkins master originally based on my previous work for a [CI Demo built for Allianz Germany](https://github.com/allianz-de/cidemo-jenkins) under MIT license.
+
+## Resources
+
+A curated list of Jenkins resources and documentaiton.
+
+### Security
+
+- [Jenkins Handbook: Managing Security](https://www.jenkins.io/doc/book/managing/security/)
+- [Jenkins wiki: Standard Security Setup](https://wiki.jenkins.io/display/JENKINS/Standard+Security+Setup)
+- [Jenkins wiki: Matrix-based security](https://wiki.jenkins.io/display/JENKINS/Matrix-based+security)
+- [Jenkins Handbook: In-process Script Approval](https://www.jenkins.io/doc/book/managing/script-approval/)  
+  Requires groovy script entering entiring script (or method signature) into configuration
+- [Cloudbees Blog: Securing Jenkins with Role-based Access Control and Azure Active Directory](https://www.previous.cloudbees.com/blog/securing-jenkins-role-based-access-control-and-azure-active-directory)
