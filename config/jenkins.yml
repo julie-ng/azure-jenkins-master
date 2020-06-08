@@ -1,5 +1,10 @@
 jenkins:
-  systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code plugin\n\n"
+  # Stricter agent to master trust model per:
+  # https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control
+  remotingSecurity:
+    enabled: true
 
-# For more properties, see
-# https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/demos/jenkins/jenkins.yaml
+  # Enable CSRF protection
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true

@@ -1,6 +1,0 @@
-# Stricter agent to master trust model
-# https://wiki.jenkins.io/display/JENKINS/Slave+To+Master+Access+Control
-
-jenkins:
-  remotingSecurity:
-    enabled: true

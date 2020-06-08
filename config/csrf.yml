@@ -1,5 +1,0 @@
-# Enable CSRF protection
-jenkins:
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: true

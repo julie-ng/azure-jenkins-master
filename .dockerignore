@@ -2,4 +2,5 @@
 *.log
 
 *.local.yml
+*.example.yml
 local/*
