@@ -47,6 +47,28 @@ These plugins are preloaded for integration with Azure.
 | [Azure VM Agents](https://plugins.jenkins.io/azure-vm-agents/) | Spin up Jenkins agents using Azure Virtual Machines | 1.5.0 |
 
 
+## Azure AD Matrix-based security
+
+In Azure AD, find "API permissions" for your app registration and set the following permissions.
+
+#### Azure Active Directory Graph
+
+| API Permission | Type | Description |
+|:--|:--|:--|
+| Directory.ReadAll | Delegated | Read directory data |
+| Directory.ReadAll | Application | Read directory data |
+| User.Read | Delegated | Sign in and read user profile |
+
+#### Microsoft Graph
+
+| API Permission | Type | Description |
+|:--|:--|:--|
+| Directory.ReadAll | Delegated | Read directory data |
+| Directory.ReadAll | Application | Read directory data |
+| User.read | Delegated | Sign in and read user profile |
+
+
+
 ## Jenkins Configuration as Code (JCasC)
 
 This image uses the [Configuration as Code Plugin](https://plugins.jenkins.io/configuration-as-code/). This originally started as an independent project and now [standard Jenkins](https://github.com/jenkinsci/jep/tree/master/jep/201). Documentation is generally found _not_ on the official Jenkins website, but in their official [jenkinsci](ttps://github.com/jenkinsci/) Github organization. For reference:
