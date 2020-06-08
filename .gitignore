@@ -2,6 +2,6 @@
 *.log
 
 *.local.yml
-local/*
-!local/location.local.yml
-!local/*.example.yml
+examples/*
+!examples/*.sample.yml
+!examples/*.example.yml

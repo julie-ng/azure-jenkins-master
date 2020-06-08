@@ -1,6 +1,9 @@
 .DS_Store
 *.log
+docker-compose.yml
 
 *.local.yml
 *.example.yml
+*.sample.yml
 local/*
+examples/*
