@@ -1,4 +1,4 @@
-ARG JENKINS_VERSION=lts
+ARG JENKINS_VERSION=2.235.1
 
 FROM jenkins/jenkins:${JENKINS_VERSION}
 LABEL maintainer="Julie Ng <me@julie.io>"
