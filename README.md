@@ -6,21 +6,13 @@ The `lts` tag automatically follows the upstream Jenkins `lts` tag, installing t
 
 | Date Published | Tag | Jenkins Version | Azure CLI Version |
 |:--|:--|:--|:--|
-| ? June 2020 | `lts` | `lts` or 2.222.3 | 2.7.0 |
+| ?? 2020 | `-` | `lts` or 2.235.1 | 2.7.0 |
 
 Version reference for Azure CLI and Jenkins:
 
 - [Azure CLI Version History](https://docs.microsoft.com/en-us/cli/azure/release-notes-azure-cli?view=azure-cli-latest)
 - [Jenkins Changelog](https://www.jenkins.io/changelog/)
 - [Jenkins Changelog - LTS](https://www.jenkins.io/changelog-stable/)
-
-### Building from `jenkins:lts`
-
-This image extends the Jenkins Long Term Support (LTS) image, instead of default latest. Because we use the `lts` tag, the image will be cached on your machine. Make sure to first grab the latest LTS image before building:
-
-```bash
-docker pull jenkins/jenkins:lts
-```
 
 ## Pre-installed Plugins
 
