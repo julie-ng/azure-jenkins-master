@@ -114,6 +114,12 @@ This is an a docker image for a Jenkins master originally based on my previous w
 
 A curated list of Jenkins resources and documentaiton.
 
+### Scaling
+
+- [Tutorial: Use Azure Container Instances as a Jenkins build agent](https://docs.microsoft.com/en-us/azure/developer/jenkins/azure-container-instances-as-jenkins-build-agent)
+  - [What is Azure Container Instances?](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-overview)
+- [Tutorial: Scale Jenkins deployments with Azure VM agents](https://docs.microsoft.com/en-us/azure/developer/jenkins/scale-deployments-using-vm-agents)
+
 ### Security
 
 - [Jenkins Handbook: Managing Security](https://www.jenkins.io/doc/book/managing/security/)
